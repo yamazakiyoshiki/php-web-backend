@@ -17,3 +17,22 @@
 
 $a = 0;
 $b = 1;
+
+if(isset($a)) {
+  echo 'true';
+} else {
+  echo 'false';
+}
+
+if(!empty($a)) {
+  echo 'true';
+} else {
+  echo 'false';
+}
+
+if(!isset($a) || $a == false) {
+  echo 'true';
+} else {
+  echo 'false';
+}
+var_dump(!isset($a));
