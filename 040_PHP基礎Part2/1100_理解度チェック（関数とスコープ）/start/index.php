@@ -1,13 +1,14 @@
 <?php
+
 /**
  * 理解度チェック（関数とスコープ）
- * 
+ *
  * 以下のDocコメントを元に関数を作成してみてください。
  */
 
 /**
  * 問１：生徒の点呼をとる関数(tenko)
- * 
+ *
  * 以下のような点呼をとりましょう。
  * ```
  * （出席しているとき）
@@ -16,16 +17,26 @@
  * taroは欠席しています。
  * ```
  * $is_absentのデフォルト引数はfalseとしてください。
- * 
+ *
  * @param string $student 生徒
  * @param bool $is_absent true:欠席 false:出席
- * @return void 
+ * @return void
  */
 
 $student1 = 'taro';
 $student2 = 'jiro';
 $student3 = 'hanako';
 
+function tenko($student, $is_absent = false)
+{
+  if ($is_absent) {
+    echo "<div>", "{$student}は欠席しています。", "</div>";
+  } else {
+    echo "<div>", "{$student}は出席しています。", "</div>";
+  }
+}
+
+tenko($student1);
 /**
  * 問２：カウンター関数(counter)
  * 
@@ -41,4 +52,15 @@ $student3 = 'hanako';
  * @return int 合計値 ($num + $step)
  */
 
-$num = 0; 
+$num = 0;
+
+function counter($step = 1)
+{
+  global $num;
+  $num += $step;
+  echo "<div>", "合計値:{$num}", "</div>";
+  return $num;
+}
+
+counter(3);
+counter(3);
