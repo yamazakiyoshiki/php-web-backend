@@ -50,3 +50,26 @@ class Japanese extends Person
 $taro = new Japanese('太郎', 18);
 // $taro->hello();
 // $taro->jusho();
+
+class Car
+{
+    public string $make;
+    public string $model;
+    public int $year;
+
+    function __construct($make, $model, $year)
+    {
+        $this->make = $make;
+        $this->model = $model;
+        $this->year = $year;
+    }
+
+    function getCarInfo()
+    {
+        echo "<p>" . "{$this->year}, {$this->make}, {$this->model}" . "</p>";
+        return $this;
+    }
+}
+
+$benzCar = new Car('EU', 'benz', 1960);
+$benzCar->getCarInfo();

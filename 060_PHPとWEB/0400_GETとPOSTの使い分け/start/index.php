@@ -1,4 +1,4 @@
-<?php 
+<?php
 $students = [
     '1' => [
         'name' => 'taro',
@@ -14,7 +14,7 @@ $students = [
     ],
 ];
 
-$id = $_GET['id'];
+$id = $_GET['id'] ?? 1;
 $student = $students[$id];
 $name = $student['name'];
 $age = $student['age'];
