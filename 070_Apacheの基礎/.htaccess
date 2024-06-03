@@ -1,0 +1,4 @@
+DirectoryIndex file1.html
+# Options -Indexes
+
+Redirect 301 /apache/file1 /apache/dir-test/file1.html
