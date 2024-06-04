@@ -6,7 +6,8 @@
 # http://localhost:8888/apache/rewrite-test/file1.html
 # -> http://localhost:8888/apache/rewrite-test/file1.php
 RewriteEngine On
-
+RewriteBase /apache/rewrite-test/
+RewriteRule rewrite-test/(.+)\.html $1.php
 
 
 # 問２：
@@ -20,3 +21,5 @@ RewriteEngine On
 # 
 # http://localhost:8888/apache/rewrite-test/sub1/file2.html
 # -> Internal Redirect は行わない。
+RewriteCond %{REQUEST_FILENAME} -f
+RewriteRule rewrite-test/sub1/(.+) sub2/$1

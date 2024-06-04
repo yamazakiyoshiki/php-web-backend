@@ -1,4 +1,13 @@
-DirectoryIndex file1.html
+# DirectoryIndex file1.html
 # Options -Indexes
 
-Redirect 301 /apache/file1 /apache/dir-test/file1.html
+# Redirect 301 /apache/file1 /apache/dir-test/file1.html
+RewriteEngine On
+# RewriteRule rewrite-test/index.html - [F]
+RewriteBase /apache/rewrite-test/
+
+# RewriteRule /?rewrite-test/(.+)\.html$ $1.php
+
+RewriteCond /Applications/MAMP/htdocs/fullstack-webdev/070_Apacheの基礎/rewrite-test/sub2/$1 -f [OR]
+RewriteCond /Applications/MAMP/htdocs/fullstack-webdev/070_Apacheの基礎/rewrite-test/sub2/$1 -d
+RewriteRule /?rewrite-test/sub1/(.*) sub2/$1 [R]
