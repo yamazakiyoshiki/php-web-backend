@@ -51,3 +51,40 @@ alter table test_db.mst_shops auto_increment = 1;
 /* 商品テーブル */
 
 /* 在庫テーブル */
+
+delete from test_db.txn_stocks ;
+delete from test_db.mst_shops ;
+delete from test_db.mst_products ;
+delete from test_db.mst_prefs;
+
+alter table test_db.mst_prefs auto_increment = 1;
+alter table test_db.mst_shops  auto_increment = 1;
+
+insert into test_db.mst_prefs (name, updated_by) values ('北海道', 'yamazaki'),
+('青森', 'yamazaki'),
+('岩手', 'yamazaki');
+
+insert into test_db.mst_products (name, updated_by) values ('テーブル', 'yamazaki'),
+('椅子', 'yamazaki'),
+('ベッド', 'yamazaki');
+
+insert into test_db.mst_shops (name, pref_id, updated_by) values ('店舗A', 1, 'yamazaki'),
+('店舗B', 2, 'yamazaki'),
+('店舗C', 3, 'yamazaki');
+
+insert into test_db.txn_stocks (product_id, shop_id, amount, updated_by) values (1, 1, 10, 'yamazaki'),
+(1, 2, 80, 'yamazaki'),
+(2, 1, 30, 'yamazaki'),
+(2, 2, 0, 'yamazaki'),
+(3, 2, 100, 'yamazaki'),
+(3, 3, 60, 'yamazaki');
+
+select * from test_db.mst_prefs;
+select * from test_db.mst_products;
+select * from test_db.mst_shops;
+select * from test_db.txn_stocks;
+
+show create table test_db.mst_prefs ;
+show create table test_db.mst_products ;
+show create table test_db.mst_shops ;
+show create table test_db.txn_stocks ;
