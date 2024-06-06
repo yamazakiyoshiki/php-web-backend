@@ -15,7 +15,10 @@
 店舗B|   2|  0|
 店舗C|   3| 60|
 */
-
+select ms.name "店舗名", ts.product_id "商品ID", ts.amount "在庫数" from test_db.txn_stocks ts
+inner join test_db.mst_shops ms
+on ts.shop_id = ms.id
+order by ms.name;
 
 /*
 問２：
@@ -33,7 +36,12 @@ inner join テーブル2 on 結合条件
 店舗B|テーブル| 80|
 店舗C|ベッド | 60|
 */
-
+select ms.name "店舗名", mp.name "商品名", ts.amount "在庫数" from test_db.txn_stocks ts
+inner join test_db.mst_shops ms
+on ts.shop_id = ms.id
+inner join test_db.mst_products mp
+on ts.product_id = mp.id
+order by ms.name;
 
 /*
 問３：
@@ -48,3 +56,11 @@ inner join テーブル2 on 結合条件
 店舗B|青森   |テーブル| 80|
 店舗C|岩手   |ベッド | 60|
 */
+select ms.name "店舗名", mpr.name "都道府県名", mp.name "商品名", ts.amount "在庫数" from test_db.txn_stocks ts
+inner join test_db.mst_shops ms
+on ts.shop_id = ms.id
+inner join test_db.mst_products mp
+on ts.product_id = mp.id
+inner join test_db.mst_prefs mpr
+on ms.pref_id = mpr.id
+order by ms.name;
