@@ -1,5 +1,5 @@
-/* 
-collation（照合順序） 
+/*
+collation（照合順序）
 照合順序は文字列をどのように比較するかに影響する。
 
 - utf8mb4_general_ci
@@ -24,12 +24,12 @@ select @@collation_database;
 -- テーブル作成
 create table test_db.collate_test (
   col varchar(20)
-) 
+)
 character set 'utf8mb4'
 collate 'utf8mb4_general_ci';
 
 -- テストデータの挿入
-insert into test_db.collate_test values 
+insert into test_db.collate_test values
 ('パパ'),
 ('ババ'),
 ('ハハ'),

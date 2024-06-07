@@ -7,10 +7,10 @@ TIMESTAMPとDATETIMEの違い
 
 - DATETIME
 5 bytes(旧バージョンでは8bytes)
-'1000-01-01 00:00:00' to '9999-12-31 23:59:59' 
+'1000-01-01 00:00:00' to '9999-12-31 23:59:59'
 タイムゾーンを考慮しない（DBの移行が考えられる場合には重要）
 */
--- 
+--
 create table test_date (
     dt datetime,
     ts timestamp

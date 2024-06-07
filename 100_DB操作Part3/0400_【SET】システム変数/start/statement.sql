@@ -14,3 +14,9 @@ set global: 全てのセッション（サーバー全体）で有効（DB再起
 ※省略した場合はセッション変数を変更
 
 */
+
+show global variables like '%auto%';
+
+select @@session.autocommit;
+
+set @@session.autocommit = 0;
