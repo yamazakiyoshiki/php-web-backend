@@ -33,7 +33,7 @@ GRANT ALL ON test_phpdb.* TO 'test_user'@'localhost';
 
 START TRANSACTION;
 
-SET @editor = 'codemafia';
+SET @editor = 'yamazaki';
 
 SET time_zone = "+09:00";
 
