@@ -1,0 +1,3 @@
+*.css linguist-language=ignore
+*.scss linguist-language=ignore
+*.php linguist-language=PHP
