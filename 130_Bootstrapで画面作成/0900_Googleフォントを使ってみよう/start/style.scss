@@ -3,11 +3,16 @@ $body-color: #6b7280;
 $font-size-base: 0.9rem;
 $input-btn-padding-x: 1.3rem;
 $input-btn-padding-x-lg: 1.2rem;
-$primary: #3882F6;
-$danger:#ff4136;
+$primary: #3882f6;
+$danger: #ff4136;
+$font-family-base: "M PLUS Rounded 1c", sans-serif;
 
 @import "../../bootstrap/bootstrap.scss";
 
 .login-form {
-    width: 300px;
+  width: 300px;
 }
+
+// body {
+//   font-family: "M PLUS Rounded 1c", sans-serif;
+// }
