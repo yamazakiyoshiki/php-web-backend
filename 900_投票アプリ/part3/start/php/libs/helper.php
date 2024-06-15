@@ -34,6 +34,10 @@ function get_url($path) {
 
 }
 
+function the_url($path) {
+    echo get_url($path);
+}
+
 function is_alnum($val) {
 
     return preg_match("/^[a-zA-Z0-9]+$/", $val);

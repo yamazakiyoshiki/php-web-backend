@@ -1,11 +1,14 @@
-<?php 
+<?php
+
 namespace db;
 
 use db\DataSource;
 use model\UserModel;
 
-class UserQuery {
-    public static function fetchById($id) {
+class UserQuery
+{
+    public static function fetchById($id)
+    {
 
         $db = new DataSource;
         $sql = 'select * from users where id = :id;';
@@ -15,10 +18,10 @@ class UserQuery {
         ], DataSource::CLS, UserModel::class);
 
         return $result;
-
     }
 
-    public static function insert($user) {
+    public static function insert($user)
+    {
 
         $db = new DataSource;
         $sql = 'insert into users(id, pwd, nickname) values (:id, :pwd, :nickname)';
@@ -30,6 +33,5 @@ class UserQuery {
             ':pwd' => $user->pwd,
             ':nickname' => $user->nickname,
         ]);
-
     }
 }
