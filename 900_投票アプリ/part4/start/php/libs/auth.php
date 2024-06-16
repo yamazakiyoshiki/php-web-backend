@@ -3,6 +3,7 @@
 namespace lib;
 
 use db\UserQuery;
+use db\TopicQuery;
 use model\UserModel;
 use Throwable;
 
@@ -58,7 +59,6 @@ class Auth
 
                 Msg::push(Msg::ERROR, 'ユーザーがすでに存在します。');
                 return false;
-
             }
 
             $is_success = UserQuery::insert($user);
@@ -66,9 +66,7 @@ class Auth
             if ($is_success) {
 
                 UserModel::setSession($user);
-
             }
-
         } catch (Throwable $e) {
 
             $is_success = false;
@@ -96,27 +94,40 @@ class Auth
         } else {
             return false;
         }
-        
     }
 
-    public static function logout() {
+    public static function logout()
+    {
         try {
-            
-            UserModel::clearSession();
 
+            UserModel::clearSession();
         } catch (Throwable $e) {
 
             Msg::push(Msg::DEBUG, $e->getMessage());
             return false;
-
         }
 
         return true;
     }
 
-    public static function requireLogin() {
-        if(!static::isLogin()) {
+    public static function requireLogin()
+    {
+        if (!static::isLogin()) {
             Msg::push(Msg::ERROR, 'ログインしてください。');
+            redirect('login');
+        }
+    }
+
+    public static function hasPermission($topic_id, $user)
+    {
+        return TopicQuery::isUserOwnTopic($topic_id, $user);
+    }
+
+    public static function requirePermission($topic_id, $user)
+    {
+
+        if (!static::hasPermission($topic_id, $user)) {
+            Msg::push(Msg::ERROR, '編集権限がありません。ログインしてから再度試してみてください。');
             redirect('login');
         }
     }
